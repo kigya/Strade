@@ -2,8 +2,10 @@ package com.plcoding.stockmarketapp.di
 
 import com.kigya.strade.data.csv.CSVParser
 import com.kigya.strade.data.csv.CompanyListingsParser
+import com.kigya.strade.data.csv.IntradayInfoParser
 import com.kigya.strade.data.repository.StockRepositoryImpl
 import com.kigya.strade.domain.model.CompanyListing
+import com.kigya.strade.domain.model.IntradayInfo
 import com.kigya.strade.domain.repository.StockRepository
 import dagger.Binds
 import dagger.Module
@@ -20,6 +22,12 @@ abstract class RepositoryModule {
     abstract fun bindCompanyListingsParser(
         companyListingsParser: CompanyListingsParser
     ): CSVParser<CompanyListing>
+
+    @Binds
+    @Singleton
+    abstract fun bindIntradayInfoParser(
+        intradayInfoParser: IntradayInfoParser
+    ): CSVParser<IntradayInfo>
 
     @Binds
     @Singleton

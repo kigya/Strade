@@ -3,7 +3,7 @@ package com.kigya.strade.di
 import android.app.Application
 import androidx.room.Room
 import com.kigya.strade.data.local.StockDatabase
-import com.kigya.strade.data.remote.dto.StockApi
+import com.kigya.strade.data.remote.StockApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
