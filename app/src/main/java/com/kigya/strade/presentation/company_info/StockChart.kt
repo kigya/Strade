@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kigya.strade.domain.model.IntradayInfo
+import com.kigya.strade.ui.theme.AccentChart
 import kotlin.math.round
 import kotlin.math.roundToInt
 
@@ -18,7 +19,7 @@ import kotlin.math.roundToInt
 fun StockChart(
     infos: List<IntradayInfo> = emptyList(),
     modifier: Modifier = Modifier,
-    graphColor: Color = Color.Green
+    graphColor: Color = AccentChart
 ) {
     val spacing = 100f
     val transparentGraphColor = remember {
@@ -53,7 +54,7 @@ fun StockChart(
             }
         }
         val priceStep = (upperValue - lowerValue) / 5f
-        (0..5).forEach { i ->
+        (0..4).forEach { i ->
             drawContext.canvas.nativeCanvas.apply {
                 drawText(
                     round(lowerValue + priceStep * i).toString(),

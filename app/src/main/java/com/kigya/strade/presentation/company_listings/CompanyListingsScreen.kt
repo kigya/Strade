@@ -9,12 +9,19 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color.Companion.Blue
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+import com.kigya.strade.presentation.destinations.CompanyInfoScreenDestination
+import com.kigya.strade.ui.theme.AccentChart
+import com.kigya.strade.ui.theme.TextWhite
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -44,6 +51,13 @@ fun CompanyListingsScreen(
             placeholder = {
                 Text(text = "Search...")
             },
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                focusedBorderColor = AccentChart,
+                unfocusedBorderColor = TextWhite,
+                cursorColor = TextWhite,
+                errorCursorColor = AccentChart,
+                trailingIconColor = AccentChart,
+            ),
             maxLines = 1,
             singleLine = true
         )
@@ -63,7 +77,9 @@ fun CompanyListingsScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-                                // TODO: Navigate to detail screen
+                                navigator.navigate(
+                                    CompanyInfoScreenDestination(company.symbol)
+                                )
                             }
                             .padding(16.dp)
                     )

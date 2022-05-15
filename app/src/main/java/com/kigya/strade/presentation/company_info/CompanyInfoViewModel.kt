@@ -19,7 +19,7 @@ class CompanyInfoViewModel @Inject constructor(
     private val repository: StockRepository
 ): ViewModel() {
 
-    private var state by mutableStateOf(CompanyInfoState())
+    var state by mutableStateOf(CompanyInfoState())
 
     init {
         viewModelScope.launch {
